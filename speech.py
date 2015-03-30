@@ -121,7 +121,7 @@ def main():
         # Trigger LEDs
     	triggerLeds(leds, rec_words)
 
-        # Playback recognized word
+        # Playback recognized word(s)
     	cm = 'espeak "'+recognised+'"'
     	os.system(cm)
 
