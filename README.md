@@ -2,6 +2,8 @@
 
 Speech-activated LEDs using [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html), [SparkFun blocks](https://www.sparkfun.com/categories/272), [Python](https://www.python.org/), and [CMU Sphinx](http://cmusphinx.sourceforge.net/).
 
+Take a look at this [video](https://youtu.be/kVTV_qZtwlY) to see it in action.
+
 ## Supplies
 
 * [Intel Edison](https://www.sparkfun.com/products/13024)
@@ -213,6 +215,8 @@ python blink.py
 # Cycles through the LEDs, one at a time starting with green... CTRL+C to quit
 python cycle.py
 ```
+
+Check out the videos of the [blinking](https://youtu.be/YM24yuBLMrU) and [cycling](https://youtu.be/Un1QrOgTkug) LEDs to see the programs in action.
 
 ## Speech-activated LEDs
 
