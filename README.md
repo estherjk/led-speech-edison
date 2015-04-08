@@ -11,8 +11,8 @@ Take a look at this [video](https://youtu.be/kVTV_qZtwlY) to see it in action.
 * [SparkFun Base Block](https://www.sparkfun.com/products/13045)
 * [SparkFun GPIO Block](https://www.sparkfun.com/products/13038) (solder headers, either male or female, to use the pins)
 * 4 LEDs (red, green, yellow, white)
-* 4 330&ohm; resistors
-* 4 1k&ohm; resistors
+* 4 330Ω resistors
+* 4 1kΩ resistors
 * [4 NPN transistors](https://www.sparkfun.com/products/521)
 * Plenty of jumper wires
 
@@ -22,7 +22,7 @@ The [SparkFun blocks](https://www.sparkfun.com/news/1589) for Intel Edison provi
 
 Here is a picture of Edison stacked on top of the Base and GPIO blocks:
 
-*See images/edison_sparkfun_blocks.JPG*
+![Edison with SparkFun Blocks](https://raw.githubusercontent.com/drejkim/led-speech-edison/master/images/edison_sparkfun_blocks.JPG)
 
 ## Setting up Edison
 
@@ -190,19 +190,19 @@ source ~/.profile
 
 ## The circuit
 
-Edison cannot supply enough current to fully (and safely) light an LED when using the SparkFun Base block. As a result, we need to make a switch using a NPN transistor for each LED we want to light. To learn more about using transistors as switches, see this [tutorial](https://learn.sparkfun.com/tutorials/transistors/applications-i-switches).
+SparkFun [recommends](https://learn.sparkfun.com/tutorials/installing-libmraa-on-ubilinux-for-edison) using transistors to fully (and safely) light LEDs. To learn more about using transistors as switches, see this [tutorial](https://learn.sparkfun.com/tutorials/transistors/applications-i-switches).
 
-**Note:** You can use the Edison Mini or Arduino Breakout boards. However, the pin mappings in the Python files will differ. The Arduino breakout board also does not need the transistors, since it can provide enough current to light the LEDs. For more details, see this [tutorial](https://learn.sparkfun.com/tutorials/installing-libmraa-on-ubilinux-for-edison) from SparkFun.
+**Note:** You can use the Edison Mini or Arduino Breakout boards. However, the pin mappings in the Python files will differ. For more details, see this [tutorial](https://learn.sparkfun.com/tutorials/installing-libmraa-on-ubilinux-for-edison) from SparkFun.
 
 ### Wiring up the circuit
 
 Shut down Edison and unplug it from power. Connect the LEDs to the GPIO block as shown:
 
-*See images/schematic.png*
+![Schematic](https://raw.githubusercontent.com/drejkim/led-speech-edison/master/images/schematic.png)
 
-*See images/connections.JPG*
+![Connections](https://raw.githubusercontent.com/drejkim/led-speech-edison/master/images/connections.JPG)
 
-**Important**: The direction of the LEDs and the transistors matter! For the LEDs, the anode (longer leg) connects to a 330&ohm; resistor, while the cathode (shorter leg) connects to the collector of the transistor. When the flat edge of a transistor is facing you, the order of the pins from left to right are as follows: emitter, base, and collector.
+**Important**: The direction of the LEDs and the transistors matter! For the LEDs, the anode (longer leg) connects to a 330Ω resistor, while the cathode (shorter leg) connects to the collector of the transistor. When the flat edge of a transistor is facing you, the order of the pins from left to right are as follows: emitter, base, and collector.
 
 ### Testing the circuit
 
@@ -220,9 +220,9 @@ Check out the videos of the [blinking](https://youtu.be/YM24yuBLMrU) and [cyclin
 
 ## Speech-activated LEDs
 
-`speech.py` contains the code for activating the LEDs with speech. In `main()`, the program continually records 2-second audio clips, decodes the speech using `pocketsphinx`, then triggers the appropriate LED action. It also plays back the recognized word through the headset.
+`speech.py` contains the code for activating the LEDs with speech. In `main()`, the program continually records 2-second audio clips, decodes the speech using `pocketsphinx`, then triggers the appropriate LED action. It also plays back the recognized word(s) through the headset.
 
-See `triggerLeds()` to see which words correspond to an LED action. Currently, the action words are:
+See `triggerLeds()` to see which words correspond to a LED action. Currently, the action words are:
 
 * RED
 * GREEN
